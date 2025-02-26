@@ -32,6 +32,14 @@ const userSchema = new Schema<IUser>(
 );
 
 userSchema.pre('save', async function (next) {
+  const isUserExist = await User.findOne({ email: this.email });
+  if (isUserExist) {
+    throw new Error("same Email");
+  }
+  next();
+});
+
+userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, Number(config.salt_rounds));
   next();
 });

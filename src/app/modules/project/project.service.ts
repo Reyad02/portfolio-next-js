@@ -4,7 +4,6 @@ import Project from './project.model';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createProject = async (project: IProject, file: any) => {
-  console.log('reached');
   if (file) {
     const imageName = project.name;
     const path = file;

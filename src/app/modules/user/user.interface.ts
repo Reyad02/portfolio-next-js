@@ -3,7 +3,7 @@ interface IUser {
   email: string;
   password: string;
   profileImage?: string;
-  userType: 'Admin';
+  userType?: 'Admin';
 }
 
 export default IUser;
